@@ -1,0 +1,11 @@
+body{
+	height:100%;
+}
+#gallery{
+	width:400px;
+	height:400px;
+	margin: 200px auto;
+/*	background:red;*/
+	border:2px solid #CCC;
+}
+
