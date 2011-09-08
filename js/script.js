@@ -19,8 +19,8 @@
 	$.fn.imgg = function(options){
 
 		settings = {
-			_rows : 4,
-			_cols : 4,
+			_rows : 3,
+			_cols : 3,
 			anim : 'fadein',
 			duration: 500,
 			height: 400,
@@ -82,19 +82,32 @@
 		var animate = function(){
 			el.children(':nth-child(' + (arr[index]) + ')')
 			.fadeIn('slow');
-
+			
 			index++;
 			if(index >= arr.length){
 				index = 0;
-				el.css('background-image','url(' + currentImage + ')');
-				el.children().hide();
-				currentImage = images[idx++];	
-				el.children().css('background-image','url(' + currentImage + ')');
+				imgNext();
 				clearInterval(interval);
 			}
 		};
 		
-		// setTimeout(animate,2000);
+		function imgNext(){
+			el.css('background-image','url(' + currentImage + ')');
+			el.children().hide();
+			currentImage = images[idx++];	
+			el.children().css('background-image','url(' + currentImage + ')');
+		}
+
+		function start(){
+			imgNext();
+			interval = setInterval(animate,duration);
+			t = setTimeout("start()",1000);
+		}
+		
+		setTimeout(function(){
+			imgNext();
+			interval = setInterval(animate,duration);
+		},1000);
 	}
 
 })(jQuery);
