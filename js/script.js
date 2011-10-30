@@ -18,7 +18,7 @@
 
 	$.fn.imgg = function(options){
 
-		settings = {
+		var settings = {
 			_rows : 3,
 			_cols : 3,
 			anim : 'fadein',
