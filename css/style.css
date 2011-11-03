@@ -1,11 +1,46 @@
 body{
 	height:100%;
+	color :#BB3415;
 }
+
+#container { 
+	width:400px;
+	height:440px;
+	margin: 50px auto;
+	border:10px solid #CCC;
+	border-radius: 5px;
+	position:relative;
+	background: #DDD;
+}
+
 #gallery{
 	width:400px;
 	height:400px;
-	margin: 200px auto;
-/*	background:red;*/
-	border:2px solid #CCC;
+	position:relative;
+}
+
+#paging {
+	height:40px;
+	background:#EEE;
+}
+footer p{
+	margin-bottom:20px;
+}
+#gallery .tile{
+	z-index: 10;
+}
+#gallery .gridY {
+	position:absolute;
+	left:0;
+	height:1px;
+	border-top: 1px solid #CCC;
+	z-index: 100;
+}
+#gallery .gridX {
+	position:absolute;
+	top:0;
+	width:1px;
+	border-left: 1px solid #CCC;
+	z-index: 100;
 }
 
