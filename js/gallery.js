@@ -1,3 +1,11 @@
+/*!
+ * Mosaic Gallery Plugin
+ *
+ * Copyright (c) 2011 Gaurav Sharma
+ * licensed under the MIT license
+ */
+
+
 (function($){
 
 	function generateRand(min,max){
