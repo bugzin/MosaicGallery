@@ -8,10 +8,8 @@ generateRand = (min, max) ->
         found = true 
         break
     if not found then rand else continue 
-
-          
-(        
-    $.fn.imgg = (options) ->
+        
+(   $.fn.imgg = (options) ->
       settings =
         _rows: 3
         _cols: 3
@@ -24,18 +22,19 @@ generateRand = (min, max) ->
         $.extend settings, options 
 
       if options? and options.images?
-        unless typeof options.images is "Array" 
+        #unless typeof options.images is "Array" 
+        if typeof options.images isnt "Array"
           if options.images.length <=0
             alert "Please provide images"
             return false
 
-      [i, j, x, y] = [0, 0, 0, 0]  
+      [i, j, x, y, index, idx] = [0, 0, 0, 0, 0, 1]  
 
-      {_rows, _cols, duration} = settings
+      {_rows, _cols, duration, images} = settings
       h = settings.height / _cols
       w = settings.width / _rows
 
-      currentImage = settings.images[0]
+      currentImage = images[0]
       el = $('<div id="img_g"/>').css('background-image',"url(#{currentImage})");
 
       @.append el
@@ -44,31 +43,19 @@ generateRand = (min, max) ->
 
       while i++ < _rows
         while j++ < _cols
-          el.append $('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', x).css('top',y).css('background-position',  (-x + ' ' + -y))
-          x+=w
-
-        j = x = 0
-        y += h
+          el.append $('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', w * (j - 1)).css('top', h  * (i - 1)).css('background-position',  (-(w * (j - 1)) + ' ' + -(h  * (i - 1))))
+        j = 0
       
       el.children().css('position','absolute').height(h).width(w)
 
-      y = h
-      i = 0
+      i = j = 0
       while i++ < _rows
-        @.append $('<div class="gridY" />').css('top', y).width settings.width 
-        y = y + h
+        @.append $('<div class="gridY" />').css('top', y = y + h).width settings.width 
 
-      x = w
-      j = 0
       while j++ < _cols
-        @.append $('<div class="gridX" />').css('left',x).height(settings.height)
-        x+=w;
+        @.append $('<div class="gridX" />').css('left',x = x + w).height(settings.height)
 
       arr = generateRand 0, _rows * _cols
-      images = settings.images;
-      index = 0
-      idx = 1
-
       interval = ""
       animate = () ->
         el.children(":nth-child(#{arr[index]})")
@@ -93,8 +80,7 @@ generateRand = (min, max) ->
           idx = 0
           arr = generateRand 0, _rows * _cols
           yes 
+
       setTimeout start, 1000 
-
-
       @
 )

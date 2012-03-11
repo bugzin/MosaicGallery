@@ -42,39 +42,29 @@
         }
       }
     }
-    _ref = [0, 0, 0, 0], i = _ref[0], j = _ref[1], x = _ref[2], y = _ref[3];
-    _rows = settings._rows, _cols = settings._cols, duration = settings.duration;
+    _ref = [0, 0, 0, 0, 0, 1], i = _ref[0], j = _ref[1], x = _ref[2], y = _ref[3], index = _ref[4], idx = _ref[5];
+    _rows = settings._rows, _cols = settings._cols, duration = settings.duration, images = settings.images;
     h = settings.height / _cols;
     w = settings.width / _rows;
-    currentImage = settings.images[0];
+    currentImage = images[0];
     el = $('<div id="img_g"/>').css('background-image', "url(" + currentImage + ")");
     this.append(el);
     el.height(settings.height).width(settings.width).css('position', 'relative');
     while (i++ < _rows) {
       while (j++ < _cols) {
-        el.append($('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', x).css('top', y).css('background-position', -x + ' ' + -y));
-        x += w;
+        el.append($('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', w * (j - 1)).css('top', h * (i - 1)).css('background-position', -(w * (j - 1)) + ' ' + -(h * (i - 1))));
       }
-      j = x = 0;
-      y += h;
+      j = 0;
     }
     el.children().css('position', 'absolute').height(h).width(w);
-    y = h;
-    i = 0;
+    i = j = 0;
     while (i++ < _rows) {
-      this.append($('<div class="gridY" />').css('top', y).width(settings.width));
-      y = y + h;
+      this.append($('<div class="gridY" />').css('top', y = y + h).width(settings.width));
     }
-    x = w;
-    j = 0;
     while (j++ < _cols) {
-      this.append($('<div class="gridX" />').css('left', x).height(settings.height));
-      x += w;
+      this.append($('<div class="gridX" />').css('left', x = x + w).height(settings.height));
     }
     arr = generateRand(0, _rows * _cols);
-    images = settings.images;
-    index = 0;
-    idx = 1;
     interval = "";
     animate = function() {
       el.children(":nth-child(" + arr[index] + ")").fadeIn('slow');
