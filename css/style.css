@@ -1,16 +1,36 @@
 body{
 	height:100%;
-	color :#BB3415;
+	color :#000;
 }
-
+.outerContainer {
+	width: 980px;
+	margin: 0 auto;
+	background-color:#dceaf4;
+	padding: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+h1 {
+	text-align: center;
+	background-color: #000;
+	color:#DDD;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 4px;
+}
 #container { 
 	width:400px;
-	height:440px;
-	margin: 50px auto;
+	height:400px;
+	margin: 40px auto;
 	border:10px solid #CCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	border-radius: 5px;
 	position:relative;
 	background: #DDD;
+
 }
 
 #gallery{

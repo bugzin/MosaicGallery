@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" href="css/style.css" />
-		<script src="js/jquery-1.6.2.js"></script>
+		<script src="js/jquery-1.7.1.min.js"></script>
 		<script src="js/galleryc.js"></script>	
 		
 		<script type="text/javascript">
@@ -19,40 +20,40 @@
 		</script>
 	</head>
 	<body>
-		<header>
-			<h1>jQuery Mosaic Gallery Plugin</h1>
-		</header>
-		<section>
-			<div id="container">
-				<div id="gallery">
-				</div>
-				<div id="paging">
-				</div>
-			</div>	
-		</section>
+		<div class="outerContainer">
+			<header>
+				<h1>jQuery Mosaic Gallery Plugin</h1>
+			</header>
+			<section>
+				<div id="container">
+					<div id="gallery">
+					</div>
+				</div>	
+			</section>
 
-		<script>
-			$(function(){
-				$('#gallery').imgg({
-					images: ['images/img1.jpg','images/img2.jpg','images/img3.jpg','images/img4.jpg']
+			<script>
+				$(function(){
+					$('#gallery').imgg({
+						images: ['images/img1.jpg','images/img2.jpg','images/img3.jpg','images/img4.jpg']
+					});
 				});
-			});
-		</script>
+			</script>
 		
-		<h4>How to use?</h4>
-		<pre>
-		$(function(){
-			$('#gallery').imgg({
-				images: ['images/img1.jpg','images/img2.jpg','images/img3.jpg','images/img4.jpg']
-			});
-		});
-		</pre>
-		<p>Just pass in the id of the container div and pass an array of images in the constructor.</p>
-		<p>Written by <a href="http://github.com/bugzu" >Gaurav Sharma</a> (@bugzu)</p>
-		<p>The plugin is hosted on github. Please click <a href="https://github.com/bugzu/imgg">here</a></p>
-		<footer>
-			<p>Feel free to use and send feedback</p>
-			<p>&nbsp;</p>
-		</footer>
+			<h4>How to use?</h4>
+			<pre>
+$(function(){
+	$('#gallery').imgg({
+		images: ['images/img1.jpg','images/img2.jpg','images/img3.jpg','images/img4.jpg']
+	});
+});
+			</pre>
+			<p>Just pass in the id of the container div and pass an array of images in the constructor.</p>
+			<p>Written by <a href="http://github.com/bugzu" >Gaurav Sharma</a> (@bugzu)</p>
+			<p>The plugin is hosted on github. Please click <a href="https://github.com/bugzu/imgg">here</a></p>
+			<footer>
+				<p>Feel free to use and send feedback</p>
+				<p>&nbsp;</p>
+			</footer>
+		</div>
 	</body>	
 </html>
