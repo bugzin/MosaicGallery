@@ -43,7 +43,7 @@ generateRand = (min, max) ->
 
       while i++ < _rows
         while j++ < _cols
-          el.append $('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', w * (j - 1)).css('top', h  * (i - 1)).css('background-position-x',  (-(w * (j - 1)))).css('background-position-y', -(h  * (i - 1)))
+          el.append $('<div id=id_' + i + '_' + j + ' class="tile" />').css('left', w * (j - 1)).css('top', h  * (i - 1)).css('background-position',  (-(w * (j - 1))) + 'px ' + -(h  * (i - 1)) + 'px')
         j = 0
       
       el.children().css('position','absolute').height(h).width(w)
